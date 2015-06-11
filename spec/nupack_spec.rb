@@ -101,7 +101,7 @@ describe NuPack do
         end
       end
 
-      context "when there are labour and material costs" do
+      context "and there are labour and material costs" do
         people = 7
         types = [:electronics, :bananas, :drugs]
 
