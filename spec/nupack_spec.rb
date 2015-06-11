@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe NuPack do
-  describe "#calculate" do
+  describe "#calculate_price" do
     context "when there are no extra costs" do
       people = 0
       types = []
@@ -11,7 +11,7 @@ describe NuPack do
 
         expected_value = price * 1.05
 
-        expect(NuPack.calculate(price,people,types)).to eql(expected_value)
+        expect(NuPack.calculate_price(price,people,types)).to eql(expected_value)
       end
     end
 
@@ -28,7 +28,7 @@ describe NuPack do
 
           expected_value = flat_markup_price * (1 + labour_markup)
 
-          expect(NuPack.calculate(price,people,types)).to eql(expected_value)
+          expect(NuPack.calculate_price(price,people,types)).to eql(expected_value)
         end
       end
 
@@ -44,7 +44,7 @@ describe NuPack do
 
             expected_value = flat_markup_price * (1 + 0.075)
 
-            expect(NuPack.calculate(price,people,types)).to eql(expected_value)
+            expect(NuPack.calculate_price(price,people,types)).to eql(expected_value)
           end
         end
 
@@ -57,7 +57,7 @@ describe NuPack do
 
             expected_value = flat_markup_price * (1 + 0.13)
 
-            expect(NuPack.calculate(price,people,types)).to eql(expected_value)
+            expect(NuPack.calculate_price(price,people,types)).to eql(expected_value)
           end
         end
 
@@ -70,7 +70,7 @@ describe NuPack do
 
             expected_value = flat_markup_price * (1 + 0.02)
 
-            expect(NuPack.calculate(price,people,types)).to eql(expected_value)
+            expect(NuPack.calculate_price(price,people,types)).to eql(expected_value)
           end
         end
 
@@ -83,7 +83,7 @@ describe NuPack do
 
             expected_value = flat_markup_price
 
-            expect(NuPack.calculate(price,people,types)).to eql(expected_value)
+            expect(NuPack.calculate_price(price,people,types)).to eql(expected_value)
           end
         end
 
@@ -96,7 +96,7 @@ describe NuPack do
 
             expected_value = flat_markup_price * (1 + 0.075 + 0.13 + 0 + 0 + 0.02)
 
-            expect(NuPack.calculate(price,people,types)).to eql(expected_value)
+            expect(NuPack.calculate_price(price,people,types)).to eql(expected_value)
           end
         end
       end
@@ -113,7 +113,7 @@ describe NuPack do
 
           expected_value = flat_markup_price * (1 + labour_markup + 0.02 + 0 + 0.075)
 
-          expect(NuPack.calculate(price,people,types)).to eql(expected_value)
+          expect(NuPack.calculate_price(price,people,types)).to eql(expected_value)
         end
       end
     end
